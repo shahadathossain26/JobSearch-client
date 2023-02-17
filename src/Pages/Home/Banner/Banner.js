@@ -3,7 +3,8 @@ import banner from '../../../images/portrait-cheerful-young-man-holding-laptop-c
 
 const Banner = () => {
     return (
-        <div className='relative mb-16'>
+        <div className='relative mb-16 z-10'>
+
             <div className='home-banner'>
                 <img className='w-full h-1/2' src={banner} alt="" />
             </div>

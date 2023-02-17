@@ -1,5 +1,6 @@
 import React from 'react';
 import websiteLogo from "../../../images/logo1.png"
+import './Header.css'
 
 const Header = () => {
     return (
@@ -19,15 +20,16 @@ const Header = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a className='text-primary font-bold ' href="/">Home</a></li>
-                    <li><a href="/">About</a></li>
-                    <li><a href="/">ContactUs</a></li>
+                    <li><a className='text-primary font-bold' href="/">Home</a></li>
+                    <li><a className='text-primary font-bold' href="/">ContactUs</a></li>
+                    <li><a className='text-primary font-bold' href="/">About</a></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a href="/" className="btn">Get started</a>
+                <a href="/" className="btn btn-primary text-white">Sing In</a>
             </div>
         </div>
+
     );
 };
 
