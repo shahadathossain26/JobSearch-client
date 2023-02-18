@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaIndustry, FaLocationArrow } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const JobCards = ({ job }) => {
     const { company, location, logo, position, job_type, job_location } = job;
@@ -29,7 +30,7 @@ const JobCards = ({ job }) => {
                     <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100'>{job_type}</h3>
                     <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100'>{job_location}</h3>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary text-white">Apply Now</button>
+                        <Link to='/signin'><button className="btn btn-primary text-white">Apply Now</button></Link>
                     </div>
                 </div>
             </div>
