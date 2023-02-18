@@ -8,7 +8,7 @@ const SignIn = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { logIn } = useContext(AuthContext);
     const location = useLocation();
-    const [loginUserEmail, setLogInUserEmail] = useState('')
+    const [loginError, setLoginError] = useState('')
 
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/'
@@ -19,10 +19,13 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 navigate('/')
-                setLogInUserEmail(data.email)
+
 
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setLoginError(err.message)
+            })
     }
 
     return (
@@ -53,7 +56,7 @@ const SignIn = () => {
                         </div>
                         <p className='text-[14px] mb-[18px]'>Forgot Password ?</p>
 
-
+                        <p className='text-red-700'>{loginError}</p>
                         <button className="btn btn-primary w-full mb-[11px] text-white">SignIn</button>
                         <p>New to Doctors Portal? <span className='text-primary font-semibold'><Link to='/signup'>Please SignUp</Link></span></p>
 

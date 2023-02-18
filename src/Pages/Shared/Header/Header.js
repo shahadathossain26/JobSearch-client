@@ -14,7 +14,7 @@ const Header = () => {
     }
 
     return (
-        <div className="navbar bg-base-100 px-10">
+        <div className="navbar bg-base-100 px-5 lg:px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,7 +26,7 @@ const Header = () => {
                         <li><Link to='contact_us' className='text-primary font-bold'>ContactUs</Link></li>
                     </ul>
                 </div>
-                <a href="/" className="text-xl"><img className='w-[100px]' src={websiteLogo} alt="" /></a>
+                <a href="/" className="text-xl"><img className='w-[70px] md:w[85px] lg:w-[100px]' src={websiteLogo} alt="" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -37,15 +37,18 @@ const Header = () => {
             </div>
 
             <div className="navbar-end">
+                {/* Toggle Button */}
                 <div className='flex items-center'>
-                    <h3 className='text-black font-semibold'>Job Seeker</h3>
+                    <h3 className='text-black text-[10px] md:text-[13px] lg:text-[16px] font-semibold'>Job Seeker</h3>
                     <label htmlFor='toggleButton' className='w-20 h-10 rounded-full cursor-pointer  relative border border-gray-300 mx-2'  >
                         <input type="checkbox" name="toggleButton" id="toggleButton" className=' sr-only peer' />
                         <span className='w-2/5 h-4/5 absolute rounded-full bg-primary top-1 left-1 peer-checked:left-11 transition-all duration-500'></span>
                     </label>
-                    <h3 className='text-black font-semibold'>Job Poster</h3>
+                    <h3 className='text-black font-semibold text-[10px] md:text-[13px] lg:text-[16px]'>Job Poster</h3>
                 </div>
-                <div className='ml-10'>
+
+                {/* SignIn/SignOut Button */}
+                <div className='ml-3 md:ml-5 lg:ml-10'>
                     {
                         user?.email ? <Link onClick={handleSignOut} className='btn btn-primary text-white'>SignOut</Link>
                             :

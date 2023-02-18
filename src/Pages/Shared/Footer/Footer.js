@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
             </div>
             <div>
-                <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+                <p>Copyright © 2023 - All right reserved by <span className='font-bold'>Shahadat Hossain Imran</span></p>
             </div>
         </footer>
     );

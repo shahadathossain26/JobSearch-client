@@ -15,11 +15,11 @@ const JobCards = ({ job }) => {
                         <div className='flex justify-between items-center'>
                             <div className='flex items-center'>
                                 <FaIndustry></FaIndustry>
-                                <h3 className='text-[18px] ml-3'>{company}</h3>
+                                <h3 className='text-[12px] lg:text-[18px] ml-3'>{company}</h3>
                             </div>
-                            <div className='flex items-center ml-10'>
+                            <div className='flex items-center ml-4 md:ml-7 lg:ml-10'>
                                 <FaLocationArrow></FaLocationArrow>
-                                <h3 className='text-[18px] ml-3'>{location}</h3>
+                                <h3 className='text-[12px] lg:text-[18px] ml-3'>{location}</h3>
                             </div>
                         </div>
                     </div>
@@ -27,8 +27,8 @@ const JobCards = ({ job }) => {
 
 
                 <div className='flex justify-evenly items-center'>
-                    <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100'>{job_type}</h3>
-                    <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100'>{job_location}</h3>
+                    <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100 text-[12px] md:text-[14px] lg:text-[16px]'>{job_type}</h3>
+                    <h3 className='border border-primary px-3 py-1 rounded-full font-semibold text-primary bg-cyan-100 text-[12px] md:text-[14px] lg:text-[16px]'>{job_location}</h3>
                     <div className="card-actions justify-end">
                         <Link to='/signin'><button className="btn btn-primary text-white">Apply Now</button></Link>
                     </div>

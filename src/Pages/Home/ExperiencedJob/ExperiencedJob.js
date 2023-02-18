@@ -13,7 +13,10 @@ const ExperiencedJob = () => {
     return (
         <div className='mt-16'>
             <h2 className='text-3xl md:text-4xl lg:text-5xl text-black text-center'><span className='text-2xl lg:text-3xl'>See Out Latest</span> <br /> <span className='text-primary'>Experienced Jobs</span></h2>
-            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-6 mx-10' data-aos="fade-up">
+            <div className='grid md:grid-cols-1 lg:grid-cols-2 gap-6 mx-10' data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="500">
                 {
                     experiencedJobs.map(job => <JobCards
                         key={job._id}
