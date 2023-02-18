@@ -6,7 +6,7 @@ const ExperiencedJob = () => {
     const [experiencedJobs, setExperiencedJobs] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/experiencedJobs")
+        fetch("https://y-woad-six.vercel.app/experiencedJobs")
             .then(res => res.json())
             .then(data => setExperiencedJobs(data))
     }, [])

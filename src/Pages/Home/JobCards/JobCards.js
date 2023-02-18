@@ -17,7 +17,7 @@ const JobCards = ({ job }) => {
                                 <FaIndustry></FaIndustry>
                                 <h3 className='text-[12px] lg:text-[18px] ml-3'>{company}</h3>
                             </div>
-                            <div className='flex items-center ml-4 md:ml-7 lg:ml-10'>
+                            <div className='flex items-center ml-0 md:ml-7 lg:ml-10'>
                                 <FaLocationArrow></FaLocationArrow>
                                 <h3 className='text-[12px] lg:text-[18px] ml-3'>{location}</h3>
                             </div>
