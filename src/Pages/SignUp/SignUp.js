@@ -1,27 +1,51 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import singUpImage from "../../images/signup.jpg"
+import { toast } from 'react-hot-toast';
 
 const SignUp = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser } = useContext(AuthContext);
-    const location = useLocation();
-    const [loginUserEmail, setLogInUserEmail] = useState('')
+    // const location = useLocation();
 
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || '/'
+    // const from = location.state?.from?.pathname || '/'
 
     const handleRegister = data => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate('/')
+
+                const newUser = {
+                    email: data.email,
+                    name: data.name,
+                    Resume: data.resume
+                }
+
+                fetch("https://job-search-server.vercel.app/users", {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.acknowledged) {
+                            toast.success('Sign Up successfully');
+                            navigate('/')
+                        }
+
+                    })
+                    .catch(err => console.error(err))
 
             })
             .catch(error => console.error(error))
+
 
     }
 
@@ -58,9 +82,16 @@ const SignUp = () => {
                             })} className="input input-bordered w-full max-w-xs" />
                             {errors.password && <p role="alert" className='text-red-700'>{errors.password?.message}</p>}
                         </div>
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"><span className="label-text">Resume Drive Link</span>
+                            </label>
+                            <input type="text" {...register("resume", { required: "Resume is required" })} className="input input-bordered w-full max-w-xs" />
+                            {errors.resume && <p role="alert" className='text-red-700'>{errors.resume?.message}</p>}
+                        </div>
+
+
                         <p className='text-[14px] mb-[18px]'>Forgot Password ?</p>
-
-
                         <button className="btn btn-primary w-full mb-[11px] text-white">SignUp</button>
                         <p className='mb-4'>Already have an account? <Link to='/login' className='text-primary '>Please SignIn</Link></p>
 

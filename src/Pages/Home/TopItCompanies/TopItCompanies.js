@@ -6,13 +6,13 @@ const TopItCompanies = () => {
     const [worldCompanies, setWorldCompanies] = useState([]);
 
     useEffect(() => {
-        fetch("https://y-woad-six.vercel.app/bangladeshCompanies")
+        fetch("https://job-search-server.vercel.app/bangladeshCompanies")
             .then(res => res.json())
             .then(data => setBdCompanies(data))
     }, [])
 
     useEffect(() => {
-        fetch("https://y-woad-six.vercel.app/worldwideCompanies")
+        fetch("https://job-search-server.vercel.app/worldwideCompanies")
             .then(res => res.json())
             .then(data => setWorldCompanies(data))
     }, [])
